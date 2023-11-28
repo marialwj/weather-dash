@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+:root {
+    --crayolablue: rgb(29, 113, 242);
+    --buttonblue: rgb(28, 156, 246);
+    --discoblue: rgb(25, 195, 251);
+    --bubbles: rgb(227, 244, 254);
+    --corn: rgb(255, 250, 224);
+    --gold: rgb(255, 205, 0);
+}
+
+body {
+    background-color: var(--bubbles)
+}
+
+h1 {
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.75rem;
+    background: var(--crayolablue);
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+}
+.weather-input {
+    width: 500px;
+}
+
+.weather-input input{
+    width: 100%;
+    height: 45px;
+    outline: none;
+    padding: 0 15px;
+    margin: 20px 0 20px 0;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 2.5px solid var(--discoblue);
+}
+.weather-input .space {
+    height: 2px;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--discoblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.weather-input .space::before {
+    content: "OR";
+    color: black;
+    font-size: 15px;
+    padding: 0 15px;
+    margin-top: -4px;
+    background-color: var(--bubbles)
+
+}
+.weather-input button {
+    width:100%;
+    padding: 10px 0;
+    cursor: pointer;
+    outline:none;
+    border: none;
+    color: black;
+    font-size: 15px;
+    background-color: var(--corn);
+    border-radius: 5px;
+}
+
+.weather-input .location-btn {
+    background: lightslategray;
+}
+
+.weather-dashboard {
+    width: 100%;
+}
+
+.current-weather {
+    color: black;
+    display: flex;
+    border-radius: 5px;
+    padding: 20px 70px 20px 20px;
+    background: var(--corn);
+    justify-content: space-between;
+}
+
+.current-weather h2 {
+    font-size: 18px;
+
+}
+
+.weather-dashboard h4 {
+    margin-top: 12px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.current-weather .icon img {
+    max-width: 120px;
+    margin-top: -15px;
+}
+
+.current-weather .icon h6 {
+    margin-top: -10px;
+    text-transform: capitalize;
+}
+
+.days-forecast h2{
+    font-size: 15px;
+    margin: 20px 0;
+}
+
+.weather-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.weather-cards .card {
+    background: var(--crayolablue);
+    list-style: none;
+    padding: 18px 15px;
+    color: white;
+}
