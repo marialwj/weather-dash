@@ -15,8 +15,18 @@
     --gold: rgb(255, 205, 0);
 }
 
-body {
+    body {
     background-color: var(--bubbles)
+}
+
+
+.card i {
+    margin-top: 40px;
+}
+
+.icon i {
+    margin-top: 30px; 
+    margin-bottom: 30px;
 }
 
 h1 {
@@ -24,14 +34,18 @@ h1 {
     padding: 15px 0;
     text-align: center;
     font-size: 1.75rem;
-    background: var(--crayolablue);
+    background-image: linear-gradient(to right top, #1d71f2, #1d72ec, #1f72e6, #2273e0, #2673da, #1180e1, #008de6, #0099ea, #00b4f5, #00cdf9, #00e5f6, #5ffbf1);
 }
 
 .container {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     padding: 30px;
+    justify-content: center;
+    align-items: center;
 }
+
 .weather-input {
     width: 500px;
 }
@@ -87,10 +101,12 @@ h1 {
 .current-weather {
     color: black;
     display: flex;
+    border: 2px solid var(--buttonblue);
     border-radius: 5px;
     padding: 20px 70px 20px 20px;
     background: var(--corn);
     justify-content: space-between;
+    width: 100%;
 }
 
 .current-weather h2 {
@@ -115,7 +131,8 @@ h1 {
 }
 
 .days-forecast h2{
-    font-size: 15px;
+    font-size: 30px;
+    text-align: center;
     margin: 20px 0;
 }
 
@@ -124,9 +141,32 @@ h1 {
     gap: 20px;
 }
 
-.weather-cards .card {
-    background: var(--crayolablue);
-    list-style: none;
-    padding: 18px 15px;
-    color: white;
+.weather-cards h4 {
+    margin-top: 30px;
 }
+
+.weather-cards .card {
+        display: flexbox;
+        flex-direction: column;
+        border-radius: 5px;
+        height: 100% !important;
+        width: 100% !important;
+        background-image: linear-gradient(to right top, #1d71f2, #1d72ec, #1f72e6, #2273e0, #2673da, #1180e1, #008de6, #0099ea, #00b4f5, #00cdf9, #00e5f6, #5ffbf1);    list-style: none;
+        padding: 18px 15px;
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        .weather-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+        }
+        .weather-cards .card {
+            flex-basis: calc(50% - 10px);
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    
