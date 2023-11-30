@@ -4,6 +4,7 @@ var locationButton = document.querySelector(".location-btn");
 var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
 var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
+var savedCitieselms = document.querySelector(".saved-city")
 
 var API_KEY = "23619bc95d00af5e6dcf21d2b1ebdf46"; 
 
@@ -76,6 +77,40 @@ var getCityCoordinates = (cityName) => {
     });
 }
 
+function getHistory(){
+    var listContainer = document.querySelector('#history');
+    var ulElement = document.createElement('ul');
+    listContainer.innerHTML = '' 
+    var cities = JSON.parse(localStorage.getItem("savedCities")) || []
+    cities = cities.reverse()
+    console.log (cities)
+    if (cities.length){
+        for(var i = 0; i < cities.length && i< 5; i++){
+            if (listContainer.childElementCount>5){
+                ulElement.children[0].remove()
+            }
+            var liElement = document.createElement('li');
+            liElement.setAttribute("data-city", cities[i].citySearchTerm)
+            liElement.setAttribute("class", "saved-city")
+            liElement.textContent = cities[i].citySearchTerm;
+            ulElement.appendChild(liElement);
+            liElement.addEventListener('click', function(){
+                cityName = liElement.textContent
+                weatherURL ="https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + API_KEY + "&units=imperial";
+                getCityCoordinates(cityName)
+            })
+        };
+        listContainer.appendChild(ulElement);
+        console.log (ulElement)
+    }
+    savedCitieselms = document.querySelectorAll(".saved-city")
+    for(var i=0; i<savedCitieselms.length;i++) {
+        savedCitieselms[i].addEventListener("click", function(event){
+            console.log (event.target)
+            getCityCoordinates(event.target.getAttribute("data-city"))
+        })
+    }  
+}
 
 searchButton.addEventListener("click", function() {
     var cityName = cityInput.value.trim(); 
@@ -84,8 +119,12 @@ searchButton.addEventListener("click", function() {
     var cityObject = {
         "citySearchTerm" : cityName
     }
+
+
 savedCities.push(cityObject)
 localStorage.setItem("savedCities", JSON.stringify(savedCities))
+getHistory()
 });
 
+window.addEventListener("load",getHistory)
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
