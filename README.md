@@ -20,6 +20,11 @@ Then I am again presented with current and future conditions for that city.
 
 ## Link to Deployed Application
 
+https://marialwj.github.io/weather-dash/
+
+## Link to GitHub Repo
+
+https://github.com/marialwj/weather-dash 
 
 ## Screenshots/Gif of how it operates
 
